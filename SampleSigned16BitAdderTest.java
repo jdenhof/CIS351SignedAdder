@@ -1,155 +1,99 @@
-<!DOCTYPE html>
-<html lang="en" class="bg-dark">
-<head>
-  <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+import org.junit.Assert;
+import org.junit.Test;
 
-<title>
-  
-        
-    
-    PrairieLearn
-  
-</title>
+import static edu.gvsu.dlunit.DLUnit.*;
 
-<link href="/cacheable_node_modules/30200b7b4bbaba6b/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
-<link href="/cacheable_node_modules/cd84b52f86059d3a/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
-<link href="/assets/74bff2f9373f8e24/stylesheets/colors.css" rel="stylesheet" />
-<link href="/assets/74bff2f9373f8e24/stylesheets/local.css" rel="stylesheet" />
-<script src="/cacheable_node_modules/52e4e2a5e60b8522/jquery/dist/jquery.min.js"></script>
-<script src="/cacheable_node_modules/30200b7b4bbaba6b/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-<script src="/cacheable_node_modules/7074a3967ab9fee5/@fortawesome/fontawesome-free/js/all.min.js"></script>
-<script src="/cacheable_node_modules/892bef45a1a5205b/js-cookie/dist/js.cookie.min.js"></script>
+/**
+ * Sample test cases for an signed, 16-bit adder with a carry-in and overflow.
+ * IMPORTANT:  These test cases do *not* thoroughly test the adder.  You need to
+ * re-name this class and add more tests!
+ */
+public class SampleSigned16BitAdderTest {
 
-  <style>
-  html, body {
-    height: 100%;
-    background-color: #e9ecef;
-  }
-  .login-container-wrapper {
-    width: 100%;
-    height: 100%;
-  }
-  .login-container {
-    background-color: white;
-    padding: 20px;
-    height: 100%;
-  }
-  .login-methods > :not(:last-child) {
-    margin-bottom: 0.5rem;
-  }
-  @media (min-width: 576px) {
-    .login-container-wrapper {
-      max-width: 500px;
-      margin: auto;
-      height: auto;
+
+  // The complete list of integers to be tests.
+  // (IMPORTANT !!! You need to add to this list !!!)
+  public static final long testIntegers[] = {-32768, -32767, 0, 1, 2, 13, 127, 128, 129, 0x5555, 32766, 32767};
+
+
+  // Helper method that runs a test for a given pair of integers and a carryIn.
+  protected static void verify(long a, long b, boolean carryIn) {
+
+    //////////////////////////////////
+    //
+    // Compute the expected outputs
+    //
+    /////////////////////////////////
+    long carryInAsInt = (carryIn ? 1 : 0);   // convert the Boolean to 0 or 1
+    long expected = a + b + carryInAsInt;    // expected output value
+
+    // The `overflow` output should be `true` if the expected output is not in the range [-(2^15), (2^15)-1]
+    // (In java "1 << 15" takes the bit string 0000000000000001 and shifts it left 15 spaces, effectively
+    // generating the value 2^15.)
+    boolean expectedOverflow = ((expected >= (1 << 15)) || (expected < -(1 << 15)));
+
+    // Output "wraps around" if there is an overflow
+    if (expectedOverflow && expected > 0) {
+      expected -= 65536;
+    } else if (expectedOverflow && expected < 0) {
+      expected += 65536;
     }
-    .login-container {
-      border-radius: 5px;
-      box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
-      height: auto;
-      margin: 20px;
+
+    ////////////////////////////////////////
+    //
+    // Configure and simulate the circuit
+    //
+    ///////////////////////////////////////
+    setPinSigned("InputA", a);
+    setPinSigned("InputB", b);
+    setPin("CarryIn", carryIn);
+    run();
+
+
+    ////////////////////////////////////////
+    //
+    // Check the correctness of the output
+    //
+    ///////////////////////////////////////
+    String message = "of " + a + " + " + b + " with " + (carryIn ? "a " : " no ") + " carry in";
+    Assert.assertEquals("Output " + message, expected, readPinSigned("Output"));
+    Assert.assertEquals("Overflow " + message, expectedOverflow, readPin("Overflow"));
+  }
+
+  //
+  // Quick tests designed to quickly catch major errors.  (Also serve as example tests)
+  //
+
+  @Test
+  public void zero_zero_false() {
+    verify(0, 0, false);
+  }
+
+  @Test
+  public void zero_one_false() {
+    verify(0, 1, false);
+  }
+
+  @Test
+  public void zero_zero_true() {
+    verify(0, 0, true);
+  }
+
+  @Test
+  public void zero_one_true() {
+    verify(0, 1, true);
+  }
+
+
+  // This is actually rather gross; but, it is an effective way to thoroughly test your adder without
+  // having to write hundreds of individual methods.
+  @Test
+  public void testAll() {
+    for (long a : testIntegers) {
+      for (long b : testIntegers) {
+        verify(a, b, false);
+        verify(a, b, true);
+      }
     }
-  }
-  .subheader {
-    font-weight: 300;
-    font-size: 1.2rem;
-  }
-  .btn .social-icon {
-    position: absolute;
-    left: 7px;
-    height: 24px;
-    top: 0;
-    bottom: 0;
-    margin: auto;
-  }
-  .btn-shib {
-    background-color: #E84A27;
-    border-color: #E84A27;
-    color: white;
-  }
-  .btn-shib:hover {
-    background-color: #D04223;
-    border-color: #D04223;
-    color: white;
-  }
-  .btn-shib:focus {
-    box-shadow: 0 0 0 0.2rem rgba(255, 83, 0, 0.35);
-  }
-  .btn-shib:active {
-    background-color: #B93B1F;
-    border-color: #B93B1F;
-    color: white;
-  }
-  
-  .institution-header {
-    overflow: hidden;
-    text-align: center;
-  }
-  .institution-header:before, .institution-header:after {
-    background-color: #000;
-    content: "";
-    display: inline-block;
-    height: 1px;
-    position: relative;
-    vertical-align: middle;
-    width: 50%;
-  }
-  .institution-header:before {
-    right: 0.5em;
-    margin-left: -50%;
-  }
-  .institution-header:after {
-    left: 0.5em;
-    margin-right: -50%;
-  }
-  
-  </style>
-</head>
-<body class="d-flex bg-dark">
-  <div class="login-container-wrapper">
-    <div class="login-container">
-      <div>
-        <h1 class="text-center">PrairieLearn</h1>
-        <h2 class="text-center subheader">
-          Sign in
-          
-        </h2>
-        <div class="login-methods mt-5">
-          
-          
-          
-            <a class="btn btn-primary w-100 position-relative" href="/pl/oauth2login" role="button">
-              <img src="/images/google_logo.svg" class="social-icon"/>
-              <span class="font-weight-bold">Sign in with Google
-            </a>
-          
-          
-            <a class="btn btn-dark w-100 position-relative" href="/pl/azure_login" role="button">
-              <img src="/images/ms_logo.svg" class="social-icon"/>
-              <span class="font-weight-bold">Sign in with Microsoft</span>
-            </a>
-          
-        </div>
-        
-          <div class="institution-header text-muted my-3">
-            Institution sign-on
-          </div>
-          <div class="login-methods">
-          
-            <a href="/pl/auth/institution/3/saml/login" class="btn btn-outline-dark btn-block">
-              University of Illinois at Urbana-Champaign (UIUC)
-            </a>
-          
-            <a href="/pl/auth/institution/6/saml/login" class="btn btn-outline-dark btn-block">
-              University of Maryland (umd.edu)
-            </a>
-          
-          </div>
-        
-      </div>
-    </div>
-  </div>
-</body>
-</html>
+  } // end testAll
+}
