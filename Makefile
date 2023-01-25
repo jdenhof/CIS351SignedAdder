@@ -14,7 +14,7 @@ window:
 
 compile test:
 	javac -cp DLUnit.jar SampleSigned16BitAdderTest.java
-run:
+run test:
 	make compile test
 	java -jar DLUnit.jar Signed16BitAdder.jls SampleSigned16BitAdderTest.class
 
