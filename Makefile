@@ -1,6 +1,6 @@
 
-SAMPLE_FILE = /
-TEST_FILE = /SampleSigned16BitAdderTest.java
+SAMPLE_FILE = Signed16BitAdder.jls
+TEST_FILE = SampleSigned16BitAdderTest
 
 # Compile DLUnit test
 # javac -cp DLUnit.jar ComparatorTwoBitTestWeak.java
@@ -12,12 +12,11 @@ TEST_FILE = /SampleSigned16BitAdderTest.java
 window:
 	java -jar JLS.jar
 
-compile test:
-	javac -cp DLUnit.jar SampleSigned16BitAdderTest.java
-run test:
-	make compile test
-	java -jar DLUnit.jar Signed16BitAdder.jls SampleSigned16BitAdderTest.class
+compile:
+	javac -cp DLUnit.jar $(TEST_FILE).java
+run:
+	java -jar DLUnit.jar $(SAMPLE_FILE) $(TEST_FILE).class
 
 # The if below is so no errors occur if the files don't exist
 clean:
-	rm SampleSigned16BitAdderTest.class
+	if [ -f *.class ]; then rm SampleSigned16BitAdderTest.class; fi
