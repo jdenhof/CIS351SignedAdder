@@ -1,7 +1,7 @@
 
-SAMPLE_FILE = Signed16BitAdder.jls
-TEST_FILE = SampleSigned16BitAdderTest
-
+SAMPLE_FILE = Subtractor_16bit.jls
+TEST_FILE = SampleSigned16BitAddSubtractTest
+PROJECT_DIR = ./project2/
 # Compile DLUnit test
 # javac -cp DLUnit.jar ComparatorTwoBitTestWeak.java
 
@@ -13,10 +13,10 @@ window:
 	java -jar JLS.jar
 
 compile:
-	javac -cp DLUnit.jar $(TEST_FILE).java
+	javac -cp DLUnit.jar $(PROJECT_DIR)$(TEST_FILE).java
 run:
-	java -jar DLUnit.jar $(SAMPLE_FILE) $(TEST_FILE).class
+	java -jar DLUnit.jar $(PROJECT_DIR)$(SAMPLE_FILE) $(PROJECT_DIR)$(TEST_FILE).class
 
 # The if below is so no errors occur if the files don't exist
 clean:
-	if [ -f *.class ]; then rm SampleSigned16BitAdderTest.class; fi
+	if [ -f $(PROJECT_DIR)*.class ]; then rm $(PROJECT_DIR)*.class; fi
