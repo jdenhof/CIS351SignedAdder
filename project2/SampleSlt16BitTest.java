@@ -63,6 +63,16 @@ public class SampleSlt16BitTest {
   }
 
   @Test
+  public void neg_neg_signed() {
+    verify(-32767, -32767, true);
+  }
+
+  @Test
+  public void pos_pos_signed() {
+    verify(32000, 32000, true);
+  }
+
+  @Test
   public void one_negone_signed() {
     verify(1, -1, true);
   }
@@ -85,5 +95,15 @@ public class SampleSlt16BitTest {
   @Test
   public void one_zero_unsigned() {
     verify(1, 0, false);
+  }
+
+  @Test
+  public void neg_neg_unsigned() {
+    verify(500, 1500, false);
+  }
+
+  @Test
+  public void pos_pos_unsigned() {
+    verify(1, 65535, false);
   }
 }

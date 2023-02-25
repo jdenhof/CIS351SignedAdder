@@ -1,0 +1,512 @@
+Please email this file to pop@mtu.edu
+along with a short description of what
+you were doing when the error occured.
+Thanks.
+JLS 4.1.4 <p>[built on April 1, 2013 at 3:30 PM]
+-- listing properties --
+java.specification.version=17
+sun.jnu.encoding=UTF-8
+java.class.path=JLS.jar
+sun.awt.enableExtraMouseButtons=true
+java.vm.vendor=Oracle Corporation
+sun.arch.data.model=64
+sun.font.fontmanager=sun.font.CFontManager
+java.vendor.url=https://java.oracle.com/
+user.timezone=America/Detroit
+java.vm.specification.version=17
+os.name=Mac OS X
+sun.java.launcher=SUN_STANDARD
+user.country=US
+sun.boot.library.path=/Library/Java/JavaVirtualMachines/jdk...
+sun.java.command=JLS.jar
+jdk.debug=release
+sun.cpu.endian=little
+user.home=/Users/jaggerdenhof
+user.language=en
+sun.stderr.encoding=UTF-8
+java.specification.vendor=Oracle Corporation
+java.version.date=2021-10-19
+java.home=/Library/Java/JavaVirtualMachines/jdk...
+file.separator=/
+java.vm.compressedOopsMode=Zero based
+line.separator=
+
+sun.stdout.encoding=UTF-8
+java.vm.specification.vendor=Oracle Corporation
+java.specification.name=Java Platform API Specification
+sun.management.compiler=HotSpot 64-Bit Tiered Compilers
+java.runtime.version=17.0.1+12-LTS-39
+user.name=jaggerdenhof
+path.separator=:
+os.version=13.0.1
+java.runtime.name=Java(TM) SE Runtime Environment
+file.encoding=UTF-8
+java.vm.name=Java HotSpot(TM) 64-Bit Server VM
+java.vendor.url.bug=https://bugreport.java.com/bugreport/
+java.io.tmpdir=/var/folders/4v/przxnqys7mv69gvj61446...
+java.version=17.0.1
+user.dir=/Users/jaggerdenhof/Workspaces/gvsu-w...
+os.arch=aarch64
+java.vm.specification.name=Java Virtual Machine Specification
+native.encoding=UTF-8
+java.library.path=/Users/jaggerdenhof/Library/Java/Exte...
+java.vm.info=mixed mode, sharing
+java.vendor=Oracle Corporation
+java.vm.version=17.0.1+12-LTS-39
+sun.io.unicode.encoding=UnicodeBig
+java.class.version=61.0
+java.lang.NullPointerException: Cannot invoke "edu.mtu.cs.jls.elem.Wire.touches(edu.mtu.cs.jls.elem.WireEnd)" because "wire" is null
+	at edu.mtu.cs.jls.edit.SimpleEditor$EditWindow.overlap(SimpleEditor.java:2875)
+	at edu.mtu.cs.jls.edit.SimpleEditor$EditWindow.mouseReleased(SimpleEditor.java:1880)
+	at java.desktop/java.awt.Component.processMouseEvent(Component.java:6626)
+	at java.desktop/javax.swing.JComponent.processMouseEvent(JComponent.java:3389)
+	at java.desktop/java.awt.Component.processEvent(Component.java:6391)
+	at java.desktop/java.awt.Container.processEvent(Container.java:2266)
+	at java.desktop/java.awt.Component.dispatchEventImpl(Component.java:5001)
+	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2324)
+	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4833)
+	at java.desktop/java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4948)
+	at java.desktop/java.awt.LightweightDispatcher.processMouseEvent(Container.java:4575)
+	at java.desktop/java.awt.LightweightDispatcher.dispatchEvent(Container.java:4516)
+	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2310)
+	at java.desktop/java.awt.Window.dispatchEventImpl(Window.java:2780)
+	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4833)
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:773)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:722)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:716)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:97)
+	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:746)
+	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:744)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
+	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:743)
+	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+CIRCUIT AnyOne
+ELEMENT WireEnd
+ int id 0
+ int x 396
+ int y 276
+ int width 6
+ int height 6
+ String put "input15"
+ ref attach 21
+ ref wire 9
+END
+ELEMENT WireEnd
+ int id 2
+ int x 444
+ int y 180
+ int width 0
+ int height 0
+ String put "output"
+ ref attach 21
+ ref wire 55
+END
+ELEMENT WireEnd
+ int id 3
+ int x 360
+ int y 120
+ int width 0
+ int height 0
+ String put "2"
+ ref attach 32
+ ref wire 41
+END
+ELEMENT InputPin
+ int id 5
+ int x 276
+ int y 168
+ int width 48
+ int height 24
+ String name "Input"
+ int bits 16
+ int watch 0
+ String orient "RIGHT"
+END
+ELEMENT WireEnd
+ int id 6
+ int x 396
+ int y 132
+ int width 6
+ int height 6
+ String put "input3"
+ ref attach 21
+ ref wire 30
+END
+ELEMENT WireEnd
+ int id 7
+ int x 396
+ int y 96
+ int width 6
+ int height 6
+ String put "input0"
+ ref attach 21
+ ref wire 54
+END
+ELEMENT WireEnd
+ int id 9
+ int x 360
+ int y 276
+ int width 0
+ int height 0
+ String put "15"
+ ref attach 32
+ ref wire 0
+END
+ELEMENT WireEnd
+ int id 10
+ int x 396
+ int y 180
+ int width 6
+ int height 6
+ String put "input7"
+ ref attach 21
+ ref wire 49
+END
+ELEMENT WireEnd
+ int id 11
+ int x 396
+ int y 204
+ int width 6
+ int height 6
+ String put "input9"
+ ref attach 21
+ ref wire 25
+END
+ELEMENT WireEnd
+ int id 13
+ int x 396
+ int y 216
+ int width 6
+ int height 6
+ String put "input10"
+ ref attach 21
+ ref wire 38
+END
+ELEMENT WireEnd
+ int id 16
+ int x 360
+ int y 228
+ int width 0
+ int height 0
+ String put "11"
+ ref attach 32
+ ref wire 45
+END
+ELEMENT OrGate
+ int id 21
+ int x 396
+ int y 96
+ int width 48
+ int height 180
+ int bits 1
+ int numInputs 16
+ String orientation "right"
+ int delay 10
+END
+ELEMENT WireEnd
+ int id 23
+ int x 396
+ int y 156
+ int width 6
+ int height 6
+ String put "input5"
+ ref attach 21
+ ref wire 26
+END
+ELEMENT WireEnd
+ int id 25
+ int x 360
+ int y 204
+ int width 0
+ int height 0
+ String put "9"
+ ref attach 32
+ ref wire 11
+END
+ELEMENT WireEnd
+ int id 26
+ int x 360
+ int y 156
+ int width 0
+ int height 0
+ String put "5"
+ ref attach 32
+ ref wire 23
+END
+ELEMENT WireEnd
+ int id 27
+ int x 396
+ int y 240
+ int width 6
+ int height 6
+ String put "input12"
+ ref attach 21
+ ref wire 36
+END
+ELEMENT WireEnd
+ int id 28
+ int x 360
+ int y 252
+ int width 0
+ int height 0
+ String put "13"
+ ref attach 32
+ ref wire 42
+END
+ELEMENT WireEnd
+ int id 29
+ int x 360
+ int y 168
+ int width 0
+ int height 0
+ String put "6"
+ ref attach 32
+ ref wire 56
+END
+ELEMENT WireEnd
+ int id 30
+ int x 360
+ int y 132
+ int width 0
+ int height 0
+ String put "3"
+ ref attach 32
+ ref wire 6
+END
+ELEMENT Splitter
+ int id 32
+ int x 324
+ int y 84
+ int width 36
+ int height 204
+ int bits 16
+ String orient "RIGHT"
+ String noncontig "true"
+ int tristate 0
+ pair 0 0
+ pair 1 1
+ pair 2 2
+ pair 3 3
+ pair 4 4
+ pair 5 5
+ pair 6 6
+ pair 7 7
+ pair 8 8
+ pair 9 9
+ pair 10 10
+ pair 11 11
+ pair 12 12
+ pair 13 13
+ pair 14 14
+ pair 15 15
+END
+ELEMENT WireEnd
+ int id 34
+ int x 396
+ int y 108
+ int width 6
+ int height 6
+ String put "input1"
+ ref attach 21
+ ref wire 40
+END
+ELEMENT WireEnd
+ int id 35
+ int x 396
+ int y 264
+ int width 6
+ int height 6
+ String put "input14"
+ ref attach 21
+ ref wire 52
+END
+ELEMENT WireEnd
+ int id 36
+ int x 360
+ int y 240
+ int width 0
+ int height 0
+ String put "12"
+ ref attach 32
+ ref wire 27
+END
+ELEMENT WireEnd
+ int id 37
+ int x 324
+ int y 180
+ int width 6
+ int height 6
+ String put "output"
+ ref attach 5
+ ref wire 47
+END
+ELEMENT WireEnd
+ int id 38
+ int x 360
+ int y 216
+ int width 0
+ int height 0
+ String put "10"
+ ref attach 32
+ ref wire 13
+END
+ELEMENT WireEnd
+ int id 40
+ int x 360
+ int y 108
+ int width 0
+ int height 0
+ String put "1"
+ ref attach 32
+ ref wire 34
+END
+ELEMENT WireEnd
+ int id 41
+ int x 396
+ int y 120
+ int width 6
+ int height 6
+ String put "input2"
+ ref attach 21
+ ref wire 3
+END
+ELEMENT WireEnd
+ int id 42
+ int x 396
+ int y 252
+ int width 6
+ int height 6
+ String put "input13"
+ ref attach 21
+ ref wire 28
+END
+ELEMENT WireEnd
+ int id 43
+ int x 396
+ int y 144
+ int width 6
+ int height 6
+ String put "input4"
+ ref attach 21
+ ref wire 44
+END
+ELEMENT WireEnd
+ int id 44
+ int x 360
+ int y 144
+ int width 0
+ int height 0
+ String put "4"
+ ref attach 32
+ ref wire 43
+END
+ELEMENT WireEnd
+ int id 45
+ int x 396
+ int y 228
+ int width 6
+ int height 6
+ String put "input11"
+ ref attach 21
+ ref wire 16
+END
+ELEMENT OutputPin
+ int id 46
+ int x 612
+ int y 168
+ int width 60
+ int height 24
+ String name "Output"
+ int bits 1
+ int watch 0
+ String orient "RIGHT"
+END
+ELEMENT WireEnd
+ int id 47
+ int x 324
+ int y 180
+ int width 0
+ int height 0
+ String put "input"
+ ref attach 32
+ ref wire 37
+END
+ELEMENT WireEnd
+ int id 49
+ int x 360
+ int y 180
+ int width 0
+ int height 0
+ String put "7"
+ ref attach 32
+ ref wire 10
+END
+ELEMENT WireEnd
+ int id 50
+ int x 396
+ int y 192
+ int width 6
+ int height 6
+ String put "input8"
+ ref attach 21
+ ref wire 53
+END
+ELEMENT WireEnd
+ int id 52
+ int x 360
+ int y 264
+ int width 0
+ int height 0
+ String put "14"
+ ref attach 32
+ ref wire 35
+END
+ELEMENT WireEnd
+ int id 53
+ int x 360
+ int y 192
+ int width 0
+ int height 0
+ String put "8"
+ ref attach 32
+ ref wire 50
+END
+ELEMENT WireEnd
+ int id 54
+ int x 360
+ int y 96
+ int width 0
+ int height 0
+ String put "0"
+ ref attach 32
+ ref wire 7
+END
+ELEMENT WireEnd
+ int id 55
+ int x 612
+ int y 180
+ int width 6
+ int height 6
+ String put "input"
+ ref attach 46
+ ref wire 2
+END
+ELEMENT WireEnd
+ int id 56
+ int x 396
+ int y 168
+ int width 6
+ int height 6
+ String put "input6"
+ ref attach 21
+ ref wire 29
+END
+ENDCIRCUIT
