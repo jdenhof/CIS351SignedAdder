@@ -1,6 +1,6 @@
 
-SAMPLE_FILE = Subtractor_16bit.jls
-TEST_FILE = SampleSigned16BitAddSubtractTest
+SAMPLE_FILE = Slt_16bit.jls
+TEST_FILE = SampleSlt16BitTest
 PROJECT_DIR = ./project2/
 # Compile DLUnit test
 # javac -cp DLUnit.jar ComparatorTwoBitTestWeak.java
