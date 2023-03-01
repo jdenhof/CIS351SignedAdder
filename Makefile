@@ -1,7 +1,8 @@
 
-SAMPLE_FILE = Slt_16bit.jls
-TEST_FILE = SampleSlt16BitTest
-PROJECT_DIR = ./project2/
+SAMPLE_FILE = ALU_16bit_start.jls
+TEST_FILE = ALUSampleTests
+PROJECT_NUM = 3
+PROJECT_DIR = ./project$(PROJECT_NUM)/
 # Compile DLUnit test
 # javac -cp DLUnit.jar ComparatorTwoBitTestWeak.java
 
@@ -11,10 +12,10 @@ PROJECT_DIR = ./project2/
 # Don't change the name of the executable.  The automated tests depend on it.
 window:
 	java -jar JLS.jar
-
-compile:
-	javac -cp DLUnit.jar $(PROJECT_DIR)$(TEST_FILE).java
+	
 run:
+	make clean
+	javac -cp DLUnit.jar $(PROJECT_DIR)$(TEST_FILE).java	
 	java -jar DLUnit.jar $(PROJECT_DIR)$(SAMPLE_FILE) $(PROJECT_DIR)$(TEST_FILE).class
 
 # The if below is so no errors occur if the files don't exist
