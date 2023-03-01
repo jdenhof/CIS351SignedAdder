@@ -1,7 +1,7 @@
 
-SAMPLE_FILE = ALU_16bit_start.jls
-TEST_FILE = ALUSampleTests
-PROJECT_NUM = 3
+SAMPLE_FILE = Slt_16bit.jls
+TEST_FILE = SampleSlt16BitTest
+PROJECT_NUM = 2
 PROJECT_DIR = ./project$(PROJECT_NUM)/
 # Compile DLUnit test
 # javac -cp DLUnit.jar ComparatorTwoBitTestWeak.java
